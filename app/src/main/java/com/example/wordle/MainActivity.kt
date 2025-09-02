@@ -8,6 +8,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.android.material.button.MaterialButton
 
 class MainActivity : AppCompatActivity() {
 
@@ -51,6 +52,25 @@ class MainActivity : AppCompatActivity() {
         valcheckGuess3 = findViewById(R.id.guessCheck3)
         Answer = findViewById(R.id.Answer)
 
+    }
+
+    fun startNewGame() {
+        wordToGuess = FourLetterWordList.getRandomFourLetterWord()
+        attempts = 0
+
+        valGuess1.text = ""
+        valcheckGuess1.text = ""
+        valGuess2.text = ""
+        valcheckGuess2.text = ""
+        valGuess3.text = ""
+        valcheckGuess3.text = ""
+        Answer.text = ""
+
+        enterGuess.text?.clear()
+        enterGuess.isEnabled = true
+        gbutton.isEnabled = true
+        resetButton.visibility = MaterialButton.GONE
+        gbutton.visibility = MaterialButton.VISIBLE
     }
     /**
      * Parameters / Fields:
