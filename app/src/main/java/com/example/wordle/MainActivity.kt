@@ -1,7 +1,9 @@
 package com.example.wordle
 
 import android.os.Bundle
+import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -9,6 +11,21 @@ import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
 
+    lateinit var enterGuess: EditText
+    lateinit var gbutton: Button
+    lateinit var resetButton: Button
+
+    lateinit var Guess1: TextView
+    lateinit var checkGuess1: TextView
+    lateinit var Guess2: TextView
+    lateinit var checkGuess2: TextView
+    lateinit var Guess3: TextView
+    lateinit var checkGuess3: TextView
+    lateinit var Answer: TextView
+
+    var wordToGuess: String = ""
+    var attempts = 0
+    var maxAttempts = 3
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
