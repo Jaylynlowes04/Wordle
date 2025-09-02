@@ -4,11 +4,13 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.button.MaterialButton
+import kotlin.math.max
 
 class MainActivity : AppCompatActivity() {
 
@@ -72,6 +74,36 @@ class MainActivity : AppCompatActivity() {
         resetButton.visibility = MaterialButton.GONE
         gbutton.visibility = MaterialButton.VISIBLE
     }
+
+    fun onSubmit() {
+        val guess = enterGuess.text.toString().uppercase()
+
+        if (guess.length != 4) {
+            Toast.makeText(this, "Guess must be a 4-letter word", Toast.LENGTH_SHORT).show()
+            return
+        }
+        if (attempts >= maxAttempts) {
+            Toast.makeText(this, "Can't guess anymore!", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        val feedback = checkGuess(guess)
+        when (attempts) {
+            0 -> { valGuess1.text = guess; valcheckGuess1.text = feedback}
+            1 -> { valGuess2.text = guess; valcheckGuess2.text = feedback}
+            2 -> { valGuess3.text = guess; valcheckGuess3.text = feedback}
+        }
+        attempts++
+
+        val won = guess == wordToGuess
+        if (won || attempts == maxAttempts) {
+            endGame(won)
+        } else {
+            enterGuess.text?.clear()
+        }
+    }
+
+
     /**
      * Parameters / Fields:
      *   wordToGuess : String - the target word the user is trying to guess
