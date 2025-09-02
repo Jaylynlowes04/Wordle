@@ -17,6 +17,8 @@ class MainActivity : AppCompatActivity() {
             insets
         }
     }
+
+    
     /**
      * Parameters / Fields:
      *   wordToGuess : String - the target word the user is trying to guess
