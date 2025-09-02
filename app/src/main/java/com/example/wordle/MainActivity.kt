@@ -15,12 +15,12 @@ class MainActivity : AppCompatActivity() {
     lateinit var gbutton: Button
     lateinit var resetButton: Button
 
-    lateinit var Guess1: TextView
-    lateinit var checkGuess1: TextView
-    lateinit var Guess2: TextView
-    lateinit var checkGuess2: TextView
-    lateinit var Guess3: TextView
-    lateinit var checkGuess3: TextView
+    lateinit var valGuess1: TextView
+    lateinit var valcheckGuess1: TextView
+    lateinit var valGuess2: TextView
+    lateinit var valcheckGuess2: TextView
+    lateinit var valGuess3: TextView
+    lateinit var valcheckGuess3: TextView
     lateinit var Answer: TextView
 
     var wordToGuess: String = ""
@@ -38,7 +38,20 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    
+    fun bindViews(){
+        enterGuess = findViewById(R.id.enterGuess)
+        gbutton = findViewById(R.id.gButton)
+        resetButton = findViewById(R.id.resetButton)
+
+        valGuess1 = findViewById(R.id.Guess1)
+        valcheckGuess1 = findViewById(R.id.guessCheck1)
+        valGuess2 = findViewById(R.id.Guess2)
+        valcheckGuess2 = findViewById(R.id.guessCheck2)
+        valGuess3 = findViewById(R.id.Guess3)
+        valcheckGuess3 = findViewById(R.id.guessCheck3)
+        Answer = findViewById(R.id.Answer)
+
+    }
     /**
      * Parameters / Fields:
      *   wordToGuess : String - the target word the user is trying to guess
