@@ -13,7 +13,9 @@ import com.google.android.material.button.MaterialButton
 import kotlin.math.max
 
 class MainActivity : AppCompatActivity() {
-
+    /**
+     * Set each variable from guess1-guess3 to the correct value
+     */
     lateinit var enterGuess: EditText
     lateinit var gbutton: Button
     lateinit var resetButton: Button
@@ -47,6 +49,9 @@ class MainActivity : AppCompatActivity() {
         resetButton.setOnClickListener { startNewGame() }
     }
 
+    /**
+     * Sets each variable to the proper ID
+     */
     fun bindViews(){
         enterGuess = findViewById(R.id.enterGuess)
         gbutton = findViewById(R.id.gButton)
@@ -62,6 +67,14 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    /**
+     * Parameters / Fields:
+     *   wordToGuess : String - the target word the user is trying to guess
+     *   attempts : Int - how many guesses the user has
+     *
+     *   Initiates the game by setting the variables to default
+     *   Enables the guess button and the enter guess field
+     */
     fun startNewGame() {
         wordToGuess = FourLetterWordList.getRandomFourLetterWord()
         attempts = 0
@@ -81,6 +94,12 @@ class MainActivity : AppCompatActivity() {
         gbutton.visibility = MaterialButton.VISIBLE
     }
 
+    /**
+     * Parameters / Fields:
+     * Checks if guess is the right length and if the guess is a valid word
+     * Lets the user know they cannot guess anymore
+     * Gives the user feedback depending on what word they use
+     */
     fun onSubmit() {
         val guess = enterGuess.text.toString().uppercase()
 
@@ -109,6 +128,11 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Ends the game
+     * Shows the answer
+     * Hides the guess button and shows the reset button
+     */
     fun endGame(won: Boolean) {
         enterGuess.isEnabled = false
         gbutton.isEnabled = false
