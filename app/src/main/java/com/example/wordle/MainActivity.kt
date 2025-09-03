@@ -39,6 +39,12 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        bindViews()
+        startNewGame()
+
+        gbutton.setOnClickListener { onSubmit() }
+        resetButton.setOnClickListener { startNewGame() }
     }
 
     fun bindViews(){
@@ -112,7 +118,6 @@ class MainActivity : AppCompatActivity() {
         gbutton.visibility = MaterialButton.GONE
         resetButton.visibility = MaterialButton.VISIBLE
     }
-
 
     /**
      * Parameters / Fields:
