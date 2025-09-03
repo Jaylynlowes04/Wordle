@@ -103,6 +103,16 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    fun endGame(won: Boolean) {
+        enterGuess.isEnabled = false
+        gbutton.isEnabled = false
+
+        Answer.text = wordToGuess.lowercase()
+
+        gbutton.visibility = MaterialButton.GONE
+        resetButton.visibility = MaterialButton.VISIBLE
+    }
+
 
     /**
      * Parameters / Fields:
