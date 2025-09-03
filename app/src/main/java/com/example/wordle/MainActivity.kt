@@ -1,6 +1,7 @@
 package com.example.wordle
 
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -9,8 +10,9 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.VIEW_MODEL_STORE_OWNER_KEY
 import com.google.android.material.button.MaterialButton
-import kotlin.math.max
+
 
 class MainActivity : AppCompatActivity() {
     /**
@@ -90,8 +92,8 @@ class MainActivity : AppCompatActivity() {
         enterGuess.text?.clear()
         enterGuess.isEnabled = true
         gbutton.isEnabled = true
-        resetButton.visibility = MaterialButton.GONE
-        gbutton.visibility = MaterialButton.VISIBLE
+        resetButton.visibility = View.GONE
+        gbutton.visibility = View.VISIBLE
     }
 
     /**
@@ -139,8 +141,8 @@ class MainActivity : AppCompatActivity() {
 
         Answer.text = wordToGuess.lowercase()
 
-        gbutton.visibility = MaterialButton.GONE
-        resetButton.visibility = MaterialButton.VISIBLE
+        gbutton.visibility = View.GONE
+        resetButton.visibility = View.VISIBLE
     }
 
     /**
